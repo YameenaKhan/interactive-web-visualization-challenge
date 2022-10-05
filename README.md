@@ -3,7 +3,7 @@ This repo contains solution to HW14 : Belly Button Bio-diversity
 <br>
 
 ## Link to the Dashboard created:
----Link----
+https://yameenakhan.github.io/interactive-web-visualization-challenge/
 
 ## Contents of the Repo:
 1. **Index.html** : The main html file for dashboard page
