@@ -108,34 +108,29 @@ function BubbleChart(sampleId)
 // Creating function for setting the MetaData table
 function ShowMetaData(sampleId)
 {
+    
     console.log(`ShowMetaData(${sampleId})`);
 
     d3.json(url).then(data => {
+
+        
 
         let metadata = data.metadata;
         let resultArray = metadata.filter(m => m.id == sampleId);
         let result = resultArray[0];
 
-        console.log(resultArray);
+        console.log(result);
+        
+        let panel = d3.select("#sample-metadata");
 
-        let id = result.id;
-        let ethnicity = result.ethnicity;
-        let gender = result.gender;
-        let age = result.age;
-        let location = result.location;
-        let bbtype = result.bbtype;
-        let wfreq = result.wfreq;
+        panel.html("");
 
-        console.log(id)
+        for (const key in result) { 
 
-        let metadataData = {type: 'table', domain:{x:['id','ethincity','gender','age','location','bbtype','wfreq'], y:[id,ethnicity,gender,age,location,bbtype,wfreq]}}
+            panel.append("h6").text(`${key}: ${result[key]}`);
 
-        let metadataDataArray = [metadataData]
-
-        let metadatalayout = {height:500}
-
-        Plotly.newPlot("sample-metadata",metadataDataArray, metadatalayout)
-
+        }
+         
    });
 
 };
@@ -191,6 +186,7 @@ function optionChanged(sampleId)
     console.log(`optionchanged ${sampleId}`);
     DrawBargraph(sampleId);
     BubbleChart(sampleId);
+    
     ShowMetaData(sampleId);
     GaugeChart(sampleId);
 }
@@ -219,7 +215,7 @@ function InitDashboard()
         // Read the current value from the dropdown
         let initialId = selector.property("value");
         console.log(`initialId = ${initialId}`)
-
+        
         DrawBargraph(initialId);
 
         BubbleChart(initialId);

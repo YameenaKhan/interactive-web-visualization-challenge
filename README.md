@@ -1,2 +1,10 @@
-# interactive-web-visualization-challenge.github.io
-This repo contains solution to HW14
+# interactive-web-visualization-challenge
+This repo contains solution to HW14 : Belly Button Bio-diversity
+<br>
+
+## Link to the Dashboard created:
+---Link----
+
+## Contents of the Repo:
+1. **Index.html** : The main html file for dashboard page
+1. **Static Folder**: The folder that contains the java script code to create the plots and populate the information on the dashboard page
